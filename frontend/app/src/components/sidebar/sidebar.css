@@ -1,0 +1,36 @@
+ul{
+     margin: 0;
+    padding: 0; 
+    margin-top: 10px;
+    background-color:#fff;
+    list-style: none;
+   
+
+}
+ul li a:hover{
+ cursor: pointer;
+}
+ul li{
+    padding: 10px 0px;
+    background-color: #fff;
+    margin-bottom: 3px;
+    border-radius:7px;
+    box-shadow: 0px 1px 0px #f3f3f3;
+}
+
+ul li:hover{
+    background-color: #f0f0ff;
+    color:#000;
+    border-radius:7px;
+}
+.sidenav{
+    height:calc(100vh - 70px);
+    background-color: white;
+    box-shadow: 0px 0px 1px;
+    
+}
+.nav-link.active{
+    background-color: #f0f0ff;
+    color:#000;
+    border-radius:7px;
+}
