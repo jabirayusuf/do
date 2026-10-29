@@ -2,14 +2,8 @@ import React from 'react'
 import Sidebar from './components/sidebar/Sidebar'
 import Navbar from './components/navbar/Navbar'
 import "./components/pages/home/home.css"
-import HomeCards from './components/pages/home/HomeCards'
-import { LuUsers } from "react-icons/lu";
-import { HiOutlineBookOpen } from "react-icons/hi2";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { TbReportAnalytics } from "react-icons/tb";
-import { PiUploadSimpleBold } from "react-icons/pi";
-import { AiOutlineUserAdd } from "react-icons/ai";
-import { LuClipboardList } from "react-icons/lu";
+import "./components/pages/student/student.css"
+
 const Student = () => {
   return (
    
@@ -24,7 +18,7 @@ const Student = () => {
                 {/* Header Div */}
               <div className='header-div'>
                 <h3>Student</h3>
-                <p>Here is an overview of academic records</p>
+                <p>Manage Student records and academic details</p>
               </div>
 
               {/* CardsDiv section */}
@@ -32,95 +26,267 @@ const Student = () => {
                    
               </div>
 
-                    {/* quick action section */}
-              <div className='quick-action '>
-                      <div className='qdiv'>
-                          <h4>Quick actions</h4>
-                          <p>Common administrative tasks</p>
-                      </div>
-
-                    <div className="quick-action-btns col-md-6 ">
-                            <button className='btn p-2'>
-                                <PiUploadSimpleBold className='tag'/> 
-                                Upload Results
-                            </button>
-
-                            <button className='btn p-2'>
-                                <AiOutlineUserAdd className='tag'/> 
-                                Add Student
-                            </button>
-
-                            <button className='btn p-2'>
-                                <LuClipboardList className='tag'/> 
-                                View Students
-                            </button>
-                            
-                      </div>
-                </div>
-                  <div className='session-student-div'>
-                        <div className='current-session col-md-6'>
-                          <div className='top'>
-                            <h4>Current session</h4>
-                            <p>The active academic session</p>
-                          </div>
-                          <h4>2024/2025</h4>
+                   {/* Top form */}
+              <div className='top-form'>
+                      <form class="d-flex my-2 col-md-2" role="search">
+                          <select className='form-control mx-2 col-'>
+                              <option>Select class</option>
+                          </select>
+                      </form>
+              </div>
+                            {/* Students Table section */}
+                <div className='student-tbl-div'>
+                        <div className='student-tbl col-md-12 '>
+                               <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">S/N</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                  </tr>
+                                  </tbody>
+                          </table>
+                                                        
 
                         </div>
 
-                        <div className='current-session col-md-6'>
-                          <div className='top'>
-                            <h4>Resent Students</h4>
-                            <p>Last registration</p>
-                          </div>
-                          
-                          <div className='student'>
-                              <div className='student-caption'>
-                                <h6>Jabir Abdurrahman Yusuf</h6>
-                                <small>BA/2024/23</small>
-                              </div>
-                              <div>
-                                 <small>2 Ang 2023 20:39</small>
-                              </div>
-                          </div>
-
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-
-                        </div>
                   </div>
               </div>
 
