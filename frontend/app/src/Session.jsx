@@ -32,94 +32,37 @@ const Session = () => {
                    
               </div>
 
-                    {/* quick action section */}
-              <div className='quick-action '>
-                      <div className='qdiv'>
-                          <h4>Session</h4>
-                          <p>Common administrative tasks</p>
-                      </div>
-
-                    <div className="quick-action-btns col-md-6 ">
-                            <button className='btn p-2'>
-                                <PiUploadSimpleBold className='tag'/> 
-                                Upload Results
-                            </button>
-
-                            <button className='btn p-2'>
-                                <AiOutlineUserAdd className='tag'/> 
-                                Add Student
-                            </button>
-
-                            <button className='btn p-2'>
-                                <LuClipboardList className='tag'/> 
-                                View Students
-                            </button>
-                            
-                      </div>
-                </div>
                   <div className='session-student-div'>
                         <div className='current-session col-md-6'>
-                          <div className='top'>
-                            <h4>Current session</h4>
-                            <p>The active academic session</p>
-                          </div>
-                          <h4>2024/2025</h4>
-
+                            <form>
+                              <h5>Create Session</h5>
+                                <form className=' '>
+                                    <label htmlFor='session'className='mb-2'>Current Session</label>
+                                    <div className='form-group d-flex'>
+                                        <input type='text' className='form-control' id='session' placeholder='2023/2024'/>
+                                        <button className='btn btn-primary mx-2 form-control' >Create</button>
+                                    </div>
+                                </form>
+                            </form>
                         </div>
 
                         <div className='current-session col-md-6'>
                           <div className='top'>
-                            <h4>Resent Students</h4>
-                            <p>Last registration</p>
+                            <h4>Academic Session</h4>
                           </div>
                           
                           <div className='student'>
                               <div className='student-caption'>
-                                <h6>Jabir Abdurrahman Yusuf</h6>
-                                <small>BA/2024/23</small>
+                                <h6>2025/2026</h6>
+                                <small>2 Ang 2023 20:39</small>
                               </div>
                               <div>
-                                 <small>2 Ang 2023 20:39</small>
+                                 <small style={{ backgroundColor: 'lightgreen', color: 'black', padding: '5px',borderRadius: '5px' }}>Current</small>
                               </div>
                           </div>
 
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-                          <div className='student'>
-                                <div className='student-caption'>
-                                    <h6>Abbas Abdurrahman Yusuf</h6>
-                                    <small>BA/2024/23</small>
-                                </div>
-                                <div>
-                                    <small>2 Ang 2023 20:39</small>
-                                </div>
-                          </div>
-
+                         
+                         
                         </div>
                   </div>
               </div>

@@ -30,7 +30,7 @@ const Users = () => {
               <div className='top-form'>
                       <form class="d-flex my-2 col-md-2" role="search">
                           <select className='form-control mx-2 col-'>
-                              <option>Select class</option>
+                              <option>Class</option>
                           </select>
                       </form>
               </div>
