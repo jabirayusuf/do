@@ -52,8 +52,8 @@ const Session = () => {
                           </div>
                           
                           <div className='student'>
-                              <div className='student-caption'>
-                                <h6>2025/2026</h6>
+                              <div className='d-flex'>
+                                <h6 className='mx-2'>2025/2026</h6>
                                 <small>2 Ang 2023 20:39</small>
                               </div>
                               <div>
