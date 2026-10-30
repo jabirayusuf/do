@@ -1,13 +1,20 @@
-const express = require("express")
-const mysql = require("mysql")
-const cors = require("cors")
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('./database/school.db',(err) =>{
+    if(err){
+        console.error(err.message);
+    }else{
+        console.log('Connected to the school database.');
+    }
+});
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+db.run('PRAGMA foreign_keys = ON;');
+module.exports = db;
 
-app.listen(8081, () =>{
-    console.log("running on port 8081")
-}
 
-)
+db.all('SELECT * FROM users ', (err, rows) => {
+    if (err) {
+        console.error(err.message);
+    } else {
+        console.log(rows);
+    }
+});
