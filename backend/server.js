@@ -1,20 +1,27 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./database/school.db',(err) =>{
-    if(err){
-        console.error(err.message);
-    }else{
-        console.log('Connected to the school database.');
-    }
-});
+const express =  require("express");
+const cors =  require("cors");
+const db =  require("./database/database");
 
-db.run('PRAGMA foreign_keys = ON;');
-module.exports = db;
+// initialize database tables
+// require("./database/init");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
 
 
-db.all('SELECT * FROM users ', (err, rows) => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        console.log(rows);
-    }
+//  select form student table
+app.get("/student", (req, res) =>{
+    db.all("SELECT * FROM student",(err, data) =>{
+        if(err){
+            return res.status(500).json({
+                error: err.message
+            });
+        }return res.json(data);
+    });
+})
+
+
+app.listen(5000, () =>{
+    console.log("server runing on port 5000")
 });
