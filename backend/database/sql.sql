@@ -38,7 +38,7 @@
 -- )
 -- ;
 
--- SELECT * FROM student WHERE gender = "male";
+-- SELECT * FROM student;
 
 -- CREATE TABLE academic_sessions(
 --      id INTEGER PRIMARY KEY AUTOINCREMENT,

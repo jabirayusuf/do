@@ -12,7 +12,7 @@ const Student = () => {
     const [students, setStudents] = useState([]);
     useEffect(()=>{
         axios.get("http://localhost:5000/student")
-        .then(res => setStudents(res.students))
+        .then(res => setStudents(res.data))
         .catch(err => console.log(err))
     },[]);
 
@@ -29,7 +29,7 @@ const Student = () => {
             <div className='inner-main-container'>
                 {/* Header Div */}
               <div className='header-div'>
-                <h3>Student</h3>
+                <h3>Students</h3>
                 <p>Manage Student records and academic details</p>
               </div>
 
@@ -65,7 +65,7 @@ const Student = () => {
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  {students.map((person , index)=>{
+                                  {students.map((person, index)=>{
                                     return <tr key={index}>
                                                 <td>{++n}</td>
                                                 <td>{person.firstname}</td>
