@@ -4,16 +4,19 @@ import Navbar from './components/navbar/Navbar'
 import "./components/pages/home/home.css"
 import "./components/pages/session/session.css"
 import { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 const Session = () => {
+  const navigate = useNavigate();
       let n = 0;
+      const message ="";
      const [session, setSession] = useState([]);
         useEffect(()=>{
             axios.get("http://localhost:5000/session")
             .then(res => setSession(res.data))
             .catch(err => console.log(err))
         },[]);
-        function visibleTbl(){}
+       
           // form to Create Session
         const [values, setValues] = useState({
               name: "",
@@ -24,7 +27,10 @@ const Session = () => {
           function handleSubmit(e){
                 e.preventDefault()
                 axios.post("http://localhost:5000/session",values)
-                .then(res =>res.json({"Message":"Session created successefully"}))
+                .then(res =>res.json({"message":"Session created successefully"}),
+                 navigate("/session")
+              
+              )
                 .catch(err => console.log(err))
           }
   return (
@@ -51,7 +57,7 @@ const Session = () => {
                               <h6>Academic Session</h6>
                                 <form className=' ' onSubmit={handleSubmit}>
                                     <div>
-                                       
+                                       {message && <p className='text-success'>{message}</p>}
                                     </div>
                                     
                                     <div className='form-group mb-2'>
