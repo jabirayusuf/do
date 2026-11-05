@@ -25,10 +25,10 @@ const App = () => {
             <Route path="/term" element={<Term/>}/>
             <Route path="/users" element={<Users/>}/>
             <Route path="/classes" element={<Classes/>}/>
+            <Route path="/session/:id" element={<Session/>}/>
             <Route path="/session" element={<Session/>}/>
             <Route path="/subject" element={<Subject/>}/>
             <Route path="/upload-result" element={<UploadResult/>}/>
-            
         </Routes>
     </BrowserRouter>
 

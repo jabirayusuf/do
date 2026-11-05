@@ -1,38 +1,103 @@
-import React from 'react'
+import React from 'react';
 import Sidebar from './components/sidebar/Sidebar'
 import Navbar from './components/navbar/Navbar'
 import "./components/pages/home/home.css"
 import "./components/pages/session/session.css"
 import { useState,useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link,useParams } from 'react-router-dom';
 import axios from "axios";
 const Session = () => {
-  const navigate = useNavigate();
-      let n = 0;
-      const message ="";
-     const [session, setSession] = useState([]);
-        useEffect(()=>{
-            axios.get("http://localhost:5000/session")
-            .then(res => setSession(res.data))
-            .catch(err => console.log(err))
-        },[]);
-       
-          // form to Create Session
-        const [values, setValues] = useState({
-              name: "",
-              start_date: "",
-              end_date: ""
-            })
 
-          function handleSubmit(e){
-                e.preventDefault()
-                axios.post("http://localhost:5000/session",values)
-                .then(res =>res.json({"message":"Session created successefully"}),
-                 navigate("/session")
-              
-              )
-                .catch(err => console.log(err))
-          }
+
+    const {id} = useParams();
+    const navigate = useNavigate();
+    let n = 0;
+    const message ="";
+    // const [session, setSession] = useState([]);
+
+    // // Generating Section TBL
+    //       useEffect(()=>{
+    //           axios.get("http://localhost:5000/session")
+    //           .then(res => setSession(res.data))
+    //           .catch(err => console.log(err))
+    //         },[]
+    //       );
+          
+        
+       
+    //       // form to Create Session
+    //     const [values, setValues] = useState({
+    //           name: "",
+    //           start_date: "",
+    //           end_date: ""
+    //         })
+
+    //       function handleSubmit(e){
+    //           e.preventDefault()
+    //           axios.post("http://localhost:5000/session",values)
+    //           .then(res =>res.json({"message":"Session created successefully"}))
+    //           .catch(err => console.log(err))
+    //       }
+                //test the function
+        //const sSession = () => {
+
+    const [session, setSession] = useState([]);
+
+    const [values, setValues] = useState({
+        name: "",
+        start_date: "",
+        end_date: ""
+    });
+
+    // 1. GET SESSION FUNCTION
+    const fetchSession = () => {
+        axios.get("http://localhost:5000/session")
+        .then(res => setSession(res.data))
+        .catch(err => console.log(err));
+    };
+
+    // 2. LOAD SESSION WHEN COMPONENT MOUNTS
+    useEffect(() => {
+        fetchSession();
+    }, []);
+
+    // 3. POST SESSION FUNCTION
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        axios.post("http://localhost:5000/session", values)
+
+        .then(res => {
+
+            // Call GET function after successful POST
+            fetchSession();
+
+          })
+
+        .catch(err => console.log(err));
+    }
+
+    // YOUR JSX FORM AND TABLE GOES HERE
+
+//};
+                //test the function
+        // Deletion function 
+      const handleDelete = (id) =>{
+        axios.delete("http://localhost:5000/session/"+id)
+        .then(res =>res.json({"message":"Session created successefully"}),
+          fetchSession()
+      )
+        .catch(err => console.log("Error from server"))
+      }
+        // Edit function 
+      const handleEdit = (id) =>{
+       // alert(id)
+        axios.put("http://localhost:5000/Edit"+id)
+        .then(res => location.reload())
+        .catch(err => console.log(err))
+      }
+
+
   return (
    
       <div className='container-fluid'>
@@ -103,7 +168,10 @@ const Session = () => {
                             </div>
                           
                           <div className='tbl-container'>
-                              <table className="table table-responsive">
+                             {session.length === 0 ? (
+                              <h3 style={{ textAlign:'center', padding:'20px'}}> No record is created</h3>
+                             ) : (
+                                       <table className="table table-responsive">
                                   <thead>
                                     <tr>
                                       <th>S/N</th>
@@ -127,13 +195,14 @@ const Session = () => {
                                               <td>{s.updated_at}</td>
                                               <td>{s.is_current}</td>
                                               <td>
-                                                <button className="btn btn-primary mx-2">Edit</button>
-                                                <button className="btn btn-danger">Delete</button>
+                                                <button  onClick={ ()=> handleEdit(s.id)} className="btn btn-primary mx-2">Edit</button>
+                                                <button onClick={ ()=> handleDelete(s.id)} className="btn btn-danger">Delete</button>
                                             </td>
                                       </tr>
                                       })}
                                   </tbody>
                           </table>
+                               )}
                           </div>
 
                         </div>

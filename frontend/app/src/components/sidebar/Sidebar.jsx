@@ -57,7 +57,7 @@ const Sidebar = () => {
                         </li>
                     </Link>
 
-                    <Link to="/session" className='nav-link'>
+                    <Link to="/session/id" className='nav-link'>
                         <li className=''>
                               <span className=' '><LuCalendarDays />  Sessions</span>
                         </li>

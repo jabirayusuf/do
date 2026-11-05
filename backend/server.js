@@ -50,6 +50,15 @@ app.post("/session", (req, res) =>{
     });
 });
  
+//  Delete Session 
+app.delete("/session/:id", (req, res) =>{
+    const {id} = req.params;
+    db.run("DELETE FROM academic_sessions WHERE id = ?", [id] , (err) =>{
+        if(err)return res.status(500).json({error: err.message});
+       // res.status(201).console.log("Deletion Successfull");
+    });
+})
+
 
 app.listen(5000, () =>{
     console.log("server runing on port 5000")
